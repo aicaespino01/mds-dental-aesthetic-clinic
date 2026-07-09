@@ -1,0 +1,494 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const specialists = [
+  {
+    name: 'TMJ disorders',
+    body: 'Jaw pain, clicking, and headaches traced back to the joint, not just the teeth.',
+  },
+  {
+    name: 'Sleep & airway dentistry',
+    body: 'Screening and appliance therapy for airway-related sleep issues, alongside your physician.',
+  },
+  {
+    name: 'Myofunctional dentistry',
+    body: 'Correcting tongue and muscle patterns that undermine orthodontic results.',
+  },
+];
+
+const everyday = [
+  'General dentistry',
+  'Orthodontic dentistry',
+  'Oral surgery',
+  'Aesthetic dentistry',
+];
+---
+
+<Layout
+  title="Home"
+  description="MDS Dental & Aesthetic Clinic in Pulong Niogan, Mabini, Batangas — general and specialist dentistry, from TMJ and sleep-airway care to Invisalign and aesthetic dentistry."
+>
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow eyebrow-dark reveal" style="--reveal-i: 0">Pulong Niogan, Mabini, Batangas</p>
+        <h1 class="reveal" style="--reveal-i: 1">Dentistry with the specialists a general clinic doesn't have.</h1>
+        <p class="lead reveal" style="--reveal-i: 2">
+          MDS Dental &amp; Aesthetic Clinic pairs everyday family dentistry with real
+          specialist care &mdash; TMJ, sleep &amp; airway, and myofunctional therapy &mdash;
+          delivered by a team that treats you like a neighbor, not a chart number.
+        </p>
+        <div class="hero-actions reveal" style="--reveal-i: 3">
+          <a href="/contact#book" class="btn btn-primary">Book an appointment</a>
+          <a href="https://m.me/mdsDental.docrhejz" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-dark">Message us on Facebook</a>
+        </div>
+      </div>
+
+      <div class="hero-media reveal-scale">
+        <img
+          src="https://images.unsplash.com/photo-1662837625421-5fd8ed6131a0?auto=format&fit=crop&w=1400&q=80"
+          alt="Dentist warmly examining a patient's teeth during a checkup"
+          width="1400"
+          height="1750"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="hero-badge">
+          <span class="hero-badge-label">Registered provider</span>
+          <span class="hero-badge-value">Invisalign&reg; &amp; SmarTee&reg;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip">
+    <div class="marquee">
+      <div class="marquee-track">
+        {[0, 1].map(() => (
+          <>
+            <span>Registered Invisalign&reg; provider</span>
+            <span class="dot" aria-hidden="true">&middot;</span>
+            <span>SmarTee&reg; aligner provider</span>
+            <span class="dot" aria-hidden="true">&middot;</span>
+            <span>TMJ, sleep &amp; airway specialists</span>
+            <span class="dot" aria-hidden="true">&middot;</span>
+            <span>Serving Mabini &amp; nearby Batangas</span>
+            <span class="dot" aria-hidden="true">&middot;</span>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="specialists">
+    <div class="container specialists-grid">
+      <div class="specialists-intro">
+        <p class="eyebrow">The specialist bench</p>
+        <h2>Not every dental clinic can treat these.</h2>
+        <p class="lead">
+          Most clinics refer these cases out. Ours doesn't have to. If your jaw aches,
+          your sleep suffers, or orthodontic results keep relapsing, this is where a
+          general checkup turns into an actual answer.
+        </p>
+      </div>
+
+      <div class="specialists-media media-zoom reveal-scale">
+        <img
+          src="https://images.unsplash.com/photo-1777444969135-caf869407707?auto=format&fit=crop&w=1000&q=80"
+          alt="Dentist reviewing a patient's dental X-rays on a light board"
+          width="1000"
+          height="1250"
+          loading="lazy"
+        />
+      </div>
+
+      <ul class="specialists-list">
+        {specialists.map((item, i) => (
+          <li class="reveal" style={`--reveal-i: ${i}`}>
+            <h3>{item.name}</h3>
+            <p>{item.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="everyday">
+    <div class="container everyday-inner">
+      <div>
+        <p class="eyebrow">And the everyday care, done well</p>
+        <h2>Family dentistry that doesn't feel like an afterthought.</h2>
+      </div>
+      <ul class="everyday-list">
+        {everyday.map((item, i) => (
+          <li class="reveal" style={`--reveal-i: ${i}`}>
+            <span class="everyday-index">{String(i + 1).padStart(2, '0')}</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <a href="/services" class="everyday-link">See every service &rarr;</a>
+    </div>
+  </section>
+
+  <section class="warmth">
+    <div class="container warmth-grid">
+      <div class="warmth-media media-zoom reveal-scale">
+        <img
+          src="https://images.unsplash.com/photo-1548382131-e0ebb1f0cdea?auto=format&fit=crop&w=1000&q=80"
+          alt="Patient smiling confidently after a dental visit"
+          width="1000"
+          height="1250"
+          loading="lazy"
+        />
+      </div>
+      <div class="warmth-copy">
+        <p class="eyebrow">Expert care, warmly delivered</p>
+        <h2>You'll never feel like a number in the schedule.</h2>
+        <p class="lead">
+          We built this clinic for Mabini families first &mdash; nervous kids, parents
+          juggling appointments, adults who put off treatment for years. Specialist
+          credentials matter, but so does whether you actually want to come back.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="location">
+    <div class="container location-grid">
+      <div class="location-copy">
+        <p class="eyebrow">Find us</p>
+        <h2>Brgy. Pulong Niogan, Mabini, Batangas</h2>
+        <p class="lead">Easy to reach from anywhere along the Mabini coastline and nearby barangays.</p>
+        <dl class="location-details">
+          <div>
+            <dt>Availability</dt>
+            <dd>Open almost every day</dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd><a href="tel:+639541439492">+63 954 143 9492</a></dd>
+          </div>
+        </dl>
+        <div class="location-actions">
+          <a href="/contact#book" class="btn btn-primary">Book your schedule</a>
+          <a href="/contact" class="btn btn-outline">Get directions &amp; contact details</a>
+        </div>
+      </div>
+      <div class="location-map">
+        <iframe
+          title="Map showing Pulong Niogan, Mabini, Batangas"
+          src="https://maps.google.com/maps?q=Pulong+Niogan,+Mabini,+Batangas,+Philippines&z=14&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    heading="Your smile deserves specialist attention."
+    body="Whether it's a routine cleaning or a jaw that's ached for years, let's start with a conversation."
+  />
+</Layout>
+
+<style>
+  .eyebrow-dark { color: var(--brand-300); }
+
+  /* ---- Hero ---- */
+  .hero {
+    background: var(--surface-dark);
+    background-image:
+      radial-gradient(circle at 78% 8%, oklch(40% 0.13 258 / 0.55), transparent 55%),
+      radial-gradient(circle at 8% 92%, oklch(29% 0.09 258 / 0.5), transparent 50%);
+    color: var(--ink-on-dark);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    min-height: min(760px, 88vh);
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: var(--space-2xl);
+    padding-left: max(var(--space-xl), calc(50vw - 620px + var(--space-xl)));
+    padding-right: var(--space-2xl);
+  }
+
+  .hero-copy h1 {
+    color: var(--ink-on-dark);
+    margin-top: var(--space-sm);
+  }
+
+  .hero-copy .lead {
+    color: var(--ink-on-dark-soft);
+    margin-top: var(--space-md);
+    line-height: 1.65;
+    max-width: 46ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .hero-media {
+    position: relative;
+    min-height: 380px;
+    border-radius: var(--space-3xl) 0 0 var(--space-3xl);
+    overflow: hidden;
+    box-shadow: -24px 0 56px oklch(10% 0.03 258 / 0.35);
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-badge {
+    position: absolute;
+    left: var(--space-lg);
+    bottom: var(--space-lg);
+    background: var(--paper);
+    color: var(--ink);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-width: 220px;
+  }
+
+  .hero-badge-label {
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+
+  .hero-badge-value {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--brand-700);
+  }
+
+  /* ---- Trust strip ---- */
+  .trust-strip {
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding-block: var(--space-md);
+  }
+
+  .marquee-track {
+    gap: var(--space-md);
+    align-items: center;
+    padding-inline: var(--space-md);
+  }
+
+  .marquee-track span:not(.dot) {
+    font-size: var(--text-xs);
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .marquee-track .dot { color: var(--brand-400); }
+
+  /* ---- Specialists ---- */
+  .specialists { padding-block: var(--space-3xl); }
+
+  .specialists-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    grid-template-areas:
+      "intro media"
+      "list media";
+    gap: var(--space-xl) var(--space-2xl);
+  }
+
+  .specialists-intro { grid-area: intro; }
+  .specialists-intro h2 { margin-top: var(--space-sm); }
+  .specialists-intro .lead { margin-top: var(--space-md); color: var(--ink-soft); }
+
+  .specialists-media { grid-area: media; align-self: start; }
+  .specialists-media img {
+    border-radius: var(--radius-lg);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+  }
+
+  .specialists-list {
+    grid-area: list;
+    list-style: none;
+    margin: 0;
+    padding: var(--space-lg) 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    border-top: 1px solid var(--border);
+  }
+
+  .specialists-list li:not(:first-child) {
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border);
+  }
+
+  .specialists-list h3 { font-size: 1.15rem; }
+  .specialists-list p { margin-top: var(--space-2xs); color: var(--ink-soft); max-width: 45ch; }
+
+  /* ---- Everyday ---- */
+  .everyday {
+    background: var(--surface);
+    padding-block: var(--space-2xl);
+    border-block: 1px solid var(--border);
+  }
+
+  .everyday-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xl);
+    flex-wrap: wrap;
+  }
+
+  .everyday-inner > div:first-child { flex: 1 1 260px; }
+  .everyday-inner h2 { margin-top: var(--space-2xs); font-size: var(--text-h3); }
+
+  .everyday-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    flex: 1 1 260px;
+  }
+
+  .everyday-list li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    font-size: var(--text-lead);
+    font-family: var(--font-display);
+  }
+
+  .everyday-index { color: var(--brand-500); font-size: var(--text-sm); font-family: var(--font-body); font-weight: 600; }
+
+  .everyday-link {
+    font-weight: 600;
+    color: var(--brand-600);
+    white-space: nowrap;
+  }
+  .everyday-link:hover { color: var(--brand-700); }
+
+  /* ---- Warmth ---- */
+  .warmth { padding-block: var(--space-3xl); }
+
+  .warmth-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  .warmth-media img {
+    border-radius: var(--space-3xl) var(--radius-lg) var(--radius-lg) var(--radius-lg);
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+  }
+
+  .warmth-copy h2 { margin-top: var(--space-sm); }
+  .warmth-copy .lead { margin-top: var(--space-md); color: var(--ink-soft); max-width: 52ch; }
+
+  /* ---- Location ---- */
+  .location {
+    background: var(--surface);
+    padding-block: var(--space-3xl);
+    border-top: 1px solid var(--border);
+  }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  .location-copy h2 { margin-top: var(--space-2xs); }
+  .location-copy .lead { margin-top: var(--space-sm); color: var(--ink-soft); }
+
+  .location-details {
+    margin: var(--space-lg) 0;
+    display: flex;
+    gap: var(--space-2xl);
+  }
+
+  .location-details dt {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
+
+  .location-details dd {
+    margin: var(--space-3xs) 0 0;
+    font-weight: 500;
+  }
+
+  .location-actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .location-map {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 4 / 3;
+  }
+
+  .location-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; min-height: 0; }
+    .hero-copy { padding-inline: var(--space-md); padding-top: var(--space-2xl); }
+    .hero-media {
+      order: -1;
+      min-height: 320px;
+      border-radius: 0;
+    }
+
+    .specialists-grid {
+      grid-template-columns: 1fr;
+      grid-template-areas: "media" "intro" "list";
+    }
+    .specialists-media { max-width: 380px; }
+
+    .warmth-grid, .location-grid { grid-template-columns: 1fr; }
+    .warmth-media { max-width: 380px; }
+  }
+
+  @media (max-width: 560px) {
+    .hero-copy { padding-inline: var(--space-sm); }
+    .hero-badge { max-width: none; }
+    .location-details { flex-direction: column; gap: var(--space-sm); }
+  }
+</style>

@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const values = [
+  {
+    name: 'Credibility through specialization',
+    body: 'TMJ, sleep & airway, and myofunctional therapy aren’t side offerings — they’re why patients travel here instead of settling for a referral elsewhere.',
+  },
+  {
+    name: 'Warmth without losing authority',
+    body: 'A relaxed visit and a rigorous treatment plan aren’t in tension. You should leave reassured on both counts.',
+  },
+  {
+    name: 'Reachable, not just open',
+    body: 'Call, message us on Facebook, or book online — whichever fits how you actually communicate.',
+  },
+  {
+    name: 'Rooted in Mabini',
+    body: 'This is a neighborhood clinic first. We know the drive you took to get here, and we don’t take the visit for granted.',
+  },
+];
+---
+
+<Layout
+  title="About"
+  description="MDS Dental & Aesthetic Clinic is a family and specialist dental practice in Pulong Niogan, Mabini, Batangas, combining general dentistry with TMJ, sleep & airway, and myofunctional care."
+>
+  <PageIntro
+    eyebrow="About the clinic"
+    heading="Built for Mabini families who deserve more than a general checkup."
+    body="MDS Dental & Aesthetic Clinic started with a simple frustration: patients with real, treatable problems &mdash; jaw pain, sleep issues, relapsing orthodontic work &mdash; kept being told to find a specialist somewhere else. We built the clinic that doesn't say that."
+  />
+
+  <section class="story">
+    <div class="container story-grid">
+      <div class="story-media media-zoom reveal-scale">
+        <img
+          src="https://images.unsplash.com/photo-1704455306251-b4634215d98f?auto=format&fit=crop&w=1000&q=80"
+          alt="Modern, calm dental treatment room at MDS Dental & Aesthetic Clinic"
+          width="1000" height="1250" loading="lazy"
+        />
+      </div>
+      <div class="story-copy">
+        <p class="eyebrow">Our approach</p>
+        <h2>One clinic, one chart, the full range of care.</h2>
+        <p class="prose">
+          Most dental problems don't stay in their lane &mdash; a bite issue affects the
+          jaw joint, an airway issue affects orthodontic stability, a childhood habit
+          shows up as an adult TMJ complaint. Splitting that care across three clinics
+          means three intake forms, three sets of X-rays, and three different opinions
+          that don't talk to each other.
+        </p>
+        <p class="prose">
+          We keep it under one roof: a clinical team trained across general dentistry
+          and the specialist disciplines &mdash; TMJ, sleep &amp; airway, myofunctional
+          therapy &mdash; plus registered Invisalign&reg; and SmarTee&reg; provider status
+          for clear aligner therapy. One team that sees the whole picture.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team">
+    <div class="container team-grid">
+      <div class="team-copy">
+        <p class="eyebrow">Meet your dentist</p>
+        <h2>Dra. Maria Regina Mari M. Delos Santos</h2>
+        <p class="prose">
+          Every patient starts with a general dentist. Dra. Delos Santos and her
+          clinical team also carry additional training in TMJ disorders, sleep and
+          airway dentistry, and myofunctional therapy &mdash; so a complex case
+          doesn't mean a referral out the door. She'll always tell you plainly when
+          something is beyond what the clinic can treat here; it rarely is.
+        </p>
+      </div>
+      <div class="team-media media-zoom reveal-scale">
+        <img
+          src="https://images.unsplash.com/photo-1606811842243-af7e16970c1f?auto=format&fit=crop&w=900&q=80"
+          alt="Clinical treatment room at MDS Dental & Aesthetic Clinic"
+          width="900" height="1125" loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="container">
+      <p class="eyebrow">What guides how we practice</p>
+      <h2>Four things we don't compromise on.</h2>
+
+      <ul class="values-list">
+        {values.map((item, i) => (
+          <li class="reveal" style={`--reveal-i: ${i % 2}`}>
+            <h3>{item.name}</h3>
+            <p>{item.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand
+    heading="Come see the difference specialist care makes."
+    body="Whether it's your first visit or your fifth clinic in search of an answer, let's talk about what's going on."
+  />
+</Layout>
+
+<style>
+  .story, .team { padding-block: var(--space-3xl); }
+  .team { background: var(--surface); border-block: 1px solid var(--border); }
+
+  .story-grid, .team-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  .team-grid { grid-template-columns: 1.1fr 0.9fr; }
+  .team-grid .team-media { order: 1; }
+
+  .story-media img, .team-media img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .story-copy h2, .team-copy h2 { margin-top: var(--space-2xs); max-width: 22ch; }
+  .story-copy .prose, .team-copy .prose {
+    margin-top: var(--space-md);
+    color: var(--ink-soft);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+  .story-copy .prose + .prose { margin-top: var(--space-sm); }
+
+  .values { padding-block: var(--space-3xl); }
+  .values h2 { margin-top: var(--space-2xs); max-width: 20ch; }
+
+  .values-list {
+    list-style: none;
+    margin: var(--space-2xl) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl) var(--space-2xl);
+  }
+
+  .values-list li { padding-top: var(--space-lg); border-top: 2px solid var(--ink); }
+  .values-list h3 { font-size: 1.2rem; }
+  .values-list p { margin-top: var(--space-2xs); color: var(--ink-soft); }
+
+  @media (max-width: 800px) {
+    .story-grid, .team-grid { grid-template-columns: 1fr; }
+    .team-grid .team-media { order: -1; }
+    .story-media, .team-media { max-width: 420px; }
+    .values-list { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,223 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const everyday = [
+  {
+    name: 'General dentistry',
+    body: 'Checkups, cleanings, fillings, and preventive care for every age in the family, from first molars to lifelong maintenance.',
+  },
+  {
+    name: 'Orthodontic dentistry',
+    body: 'Traditional braces and bite correction for growing smiles and adults who never got the chance the first time around.',
+  },
+  {
+    name: 'Oral surgery',
+    body: 'Extractions, wisdom teeth, and minor surgical procedures handled in-house, with a clear plan for recovery.',
+  },
+  {
+    name: 'Aesthetic dentistry',
+    body: 'Whitening, veneers, bonding, and smile makeovers for patients who want their smile to match how they feel.',
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="Full-service dentistry in Mabini, Batangas: general and orthodontic dentistry, oral surgery, aesthetic dentistry, TMJ, sleep & airway care, myofunctional therapy, and registered Invisalign & SmarTee aligners."
+>
+  <PageIntro
+    eyebrow="What we treat"
+    heading="Every service a general clinic offers. Plus the ones most don't."
+    body="MDS Dental & Aesthetic Clinic runs on two tracks: dependable, everyday family dentistry, and specialist care that usually means a referral somewhere else. Here, it's one clinic, one team, one chart."
+  />
+
+  <section class="specialist-section" id="specialist">
+    <div class="container">
+      <p class="eyebrow">Specialist care</p>
+      <h2>The bench most clinics don't have.</h2>
+    </div>
+
+    <div class="service-row">
+      <div class="container row-inner row-media-right">
+        <div class="row-copy reveal">
+          <h3>TMJ disorders</h3>
+          <p class="prose">
+            Jaw pain, clicking or popping, morning headaches, and a jaw that locks or
+            feels tight are often dismissed as normal &mdash; they're not. We evaluate
+            the temporomandibular joint itself, not just the teeth around it, and build
+            a treatment plan that might include splint therapy, bite adjustment, or
+            coordinated care with a physical therapist.
+          </p>
+        </div>
+        <div class="row-media media-zoom reveal-scale">
+          <img
+            src="https://images.unsplash.com/photo-1777444969135-caf869407707?auto=format&fit=crop&w=900&q=80"
+            alt="Dentist reviewing a patient's dental X-rays on a light board to assess jaw alignment"
+            width="900" height="1050" loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="service-row alt">
+      <div class="container row-inner row-media-left">
+        <div class="row-media media-zoom reveal-scale">
+          <img
+            src="https://images.unsplash.com/photo-1777793389944-f7165259a05c?auto=format&fit=crop&w=900&q=80"
+            alt="Dentist explaining a tooth model to a patient during a consultation"
+            width="900" height="1050" loading="lazy"
+          />
+        </div>
+        <div class="row-copy reveal">
+          <h3>Sleep &amp; airway dentistry</h3>
+          <p class="prose">
+            Snoring, restless sleep, and daytime fatigue can trace back to how your
+            airway behaves at night. We screen for airway-related sleep issues and
+            provide oral appliance therapy, working alongside your physician or sleep
+            specialist when a fuller diagnosis is needed.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-row emphasis">
+      <div class="container emphasis-inner reveal-scale">
+        <h3>Myofunctional dentistry</h3>
+        <p class="prose">
+          Tongue thrust, mouth breathing, and improper swallowing patterns quietly
+          undo orthodontic work and contribute to airway problems. Myofunctional
+          therapy retrains these muscle patterns so results &mdash; from braces,
+          aligners, or airway treatment &mdash; actually hold.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="container row-inner row-media-right">
+        <div class="row-copy reveal">
+          <h3>Invisalign&reg; &amp; SmarTee&reg; aligners</h3>
+          <p class="prose">
+            As a registered provider for both systems, we offer clear aligner therapy
+            for teens and adults who want straighter teeth without traditional metal
+            braces &mdash; fitted, monitored, and adjusted in-house from start to finish.
+          </p>
+        </div>
+        <div class="row-media media-zoom reveal-scale">
+          <img
+            src="https://images.unsplash.com/photo-1611695434369-a8f5d76ceb7b?auto=format&fit=crop&w=900&q=80"
+            alt="Patient smiling confidently, showing straight, healthy teeth"
+            width="900" height="1050" loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="everyday-section" id="everyday">
+    <div class="container">
+      <p class="eyebrow">Everyday &amp; family dentistry</p>
+      <h2>The care every patient needs, done properly.</h2>
+
+      <ul class="everyday-detail-list">
+        {everyday.map((item, i) => (
+          <li class="reveal" style={`--reveal-i: ${i}`}>
+            <span class="everyday-detail-index">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{item.name}</h3>
+              <p>{item.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand
+    heading="Not sure which service you need?"
+    body="Tell us what's going on and we'll point you toward the right specialist &mdash; or just book a general checkup to start."
+  />
+</Layout>
+
+<style>
+  .specialist-section { padding-block: var(--space-3xl) 0; }
+  .specialist-section > .container > h2 { margin-top: var(--space-2xs); max-width: 24ch; }
+
+  .service-row { padding-block: var(--space-2xl); }
+  .service-row.alt { background: var(--surface); }
+
+  .row-inner {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  .row-media-left { grid-template-columns: 0.85fr 1fr; }
+  .row-media-left .row-media { order: -1; }
+
+  .row-copy h3 { font-size: var(--text-h3); }
+  .row-copy .prose { margin-top: var(--space-md); color: var(--ink-soft); font-size: 1.0625rem; line-height: 1.7; }
+
+  .row-media img {
+    width: 100%;
+    aspect-ratio: 6 / 7;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .service-row.emphasis {
+    background: var(--brand-900);
+    color: var(--ink-on-dark);
+    padding-block: var(--space-2xl);
+  }
+
+  .emphasis-inner { max-width: 720px; text-align: center; margin-inline: auto; }
+  .emphasis-inner h3 { color: var(--ink-on-dark); font-size: var(--text-h3); }
+  .emphasis-inner .prose {
+    margin: var(--space-md) auto 0;
+    color: var(--ink-on-dark-soft);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+
+  .everyday-section { padding-block: var(--space-3xl); }
+  .everyday-section h2 { margin-top: var(--space-2xs); max-width: 26ch; }
+
+  .everyday-detail-list {
+    list-style: none;
+    margin: var(--space-2xl) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .everyday-detail-list li {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: var(--space-lg);
+    padding-block: var(--space-lg);
+    border-top: 1px solid var(--border);
+  }
+  .everyday-detail-list li:last-child { border-bottom: 1px solid var(--border); }
+
+  .everyday-detail-index {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--brand-400);
+  }
+
+  .everyday-detail-list h3 { font-size: 1.3rem; }
+  .everyday-detail-list p { margin-top: var(--space-2xs); color: var(--ink-soft); max-width: 58ch; }
+
+  @media (max-width: 800px) {
+    .row-inner, .row-media-left { grid-template-columns: 1fr; }
+    .row-media-left .row-media { order: 0; }
+    .row-media { max-width: 420px; }
+
+    .everyday-detail-list li { grid-template-columns: 1fr; gap: var(--space-2xs); }
+  }
+</style>
